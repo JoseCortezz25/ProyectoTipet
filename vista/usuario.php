@@ -18,7 +18,7 @@
 ?>
 
 <body>
-<!-- vamos a valer en bases de datos, crack -->
+<!-- vamos a vFFFaler en bases de datos, crack -->
   <div class="contenedorHome">
 
     <!-- -------------------- Columna Uno -------------------- -->

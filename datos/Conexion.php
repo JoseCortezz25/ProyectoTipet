@@ -12,7 +12,7 @@ class Conexion
     {
         try {
 
-            $cn = new PDO("mysql:host=localhost;dbname=proyecto", "root", "");
+            $cn = new PDO("mysql:host=127.0.0.1:52225;dbname=ProyectoTipetDB", "azure", "6#Vwhd_$");
 
             return $cn;
 
