@@ -87,7 +87,7 @@
 
     </main>
     <footer>
-        <p><a href="index.php">Hecho con ❤</a></p>
+        <p><a href="">Hecho con ❤</a></p>
     </footer>
 
 
