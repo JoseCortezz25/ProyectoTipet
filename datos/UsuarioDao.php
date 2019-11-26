@@ -7,14 +7,13 @@ class UsuarioDao extends Conexion
 {
     protected static $cnx;
 
-    // Generar metodo para conectarse
-    private static function getConexion(){
-        // self para invocar esta clase en si
+    private static function getConexion()
+    {
         self::$cnx = Conexion::conectar();
     }
-    
-    // desconectar 
-    private static function desconectar(){
+
+    private static function desconectar()
+    {
         self::$cnx = null;
     }
 
@@ -54,7 +53,7 @@ class UsuarioDao extends Conexion
      * @return     object
      */
     public static function getUsuario($usuario){
-        $query = "SELECT id,nombre,email,usuario,privilegio,fecha_registro,descripcion,numero FROM usuarios WHERE usuario = :usuario AND password = :password";
+        $query = "SELECT id,nombre,email,usuario,privilegio,fecha_registro FROM usuarios WHERE usuario = :usuario AND password = :password";
 
         self::getConexion();
 
@@ -74,8 +73,6 @@ class UsuarioDao extends Conexion
         $usuario->setEmail($filas["email"]);
         $usuario->setPrivilegio($filas["privilegio"]);
         $usuario->setFecha_registro($filas["fecha_registro"]);
-        $usuario->setPrivilegio($filas["descripcion"]);
-        $usuario->setFecha_registro($filas["numero"]);
 
         return $usuario;
     }
@@ -98,7 +95,6 @@ class UsuarioDao extends Conexion
         $resultado->bindValue(":usuario", $usuario->getUsuario());
         $resultado->bindValue(":password", $usuario->getPassword());
         $resultado->bindValue(":privilegio", $usuario->getPrivilegio());
-        // $resultado->bindValue(":numero", $usuario->getNumero());
 
         if ($resultado->execute()) {
             return true;
@@ -107,11 +103,11 @@ class UsuarioDao extends Conexion
         return false;
     }
 
-// Tooltip
 
-    public static function guardarDatos($nombre,$descripcion,$idDelUsuario,$fecha,$opcion,$raza,$ciudad,$destino){
-        $consulta = "INSERT INTO publicaciones(nombreMascota,descripcion,idUsuario,fecha,tipoMascota,razaMascota,ubicacion,direccionImg) 
-                     VALUES ('$nombre','$descripcion','$idDelUsuario','$fecha','$opcion','$raza','$ciudad','$destino')";
+
+    public function guardarDatos($nombre,$descripcion,$idDelUsuario,$fecha,$opcion,$raza,$destino){
+        $consulta = "INSERT INTO publicaciones(nombreMascota,descripcion,idUsuario,fecha,tipoMascota,razaMascota,direccionImg) 
+                     VALUES ('$nombre','$descripcion','$idDelUsuario','$fecha','$opcion','$raza','$destino')";
 
         self::getConexion();
         $query = self::$cnx->prepare($consulta);
@@ -119,14 +115,27 @@ class UsuarioDao extends Conexion
         $query -> execute();
     }
 
-    public static function obtenerPublicacion($idPublicacion){
+
+
+    public function obtenerPublicacion($idPublicacion){
+        // return $dado;
+        // $idPublicacion = 1;
         $query  =  "SELECT 
                         a.nombre
                     FROM
                         usuarios a,
                         publicaciones b
                     WHERE a.id = b.idUsuario AND idPublicacion = :idPublicacion";
+        // $query = " SELECT 
+        //                         publicaciones.*,
+        //                         usuarios.nombreCompleto
 
+        //                     FROM publicaciones
+
+        //                     INNER JOIN usuarios
+        //                         ON publicaciones.idUsuario = usuarios.idUsuario
+
+        //                     WHERE idPublicacion = :idPublicacion";
         self::getConexion();
 
         $resultado = self::$cnx->prepare($query);
@@ -141,55 +150,20 @@ class UsuarioDao extends Conexion
     }
 
 
-    public static function obtenerPublicaciones(){
+    public function obtenerPublicaciones(){
         self::getConexion();
 
         $query = self::$cnx->prepare("
             SELECT *
-            FROM publicaciones 
+            FROM publicaciones
         ");
         $query->execute();
 
         return $query->fetchAll();
 
     }
-    public static function obtenerPublicacionesMascotas(){
-        self::getConexion();
 
-        $query = self::$cnx->prepare("
-            SELECT *
-            FROM publicaciones WHERE tipoMascota = 'Adopción'
-        ");
-        $query->execute();
-
-        return $query->fetchAll();
-    }
-
-    public static function obtenerPublicacionesPerdido(){
-        self::getConexion();
-
-        $query = self::$cnx->prepare("
-            SELECT *
-            FROM publicaciones WHERE tipoMascota = 'Perdido'
-        ");
-        $query->execute();
-
-        return $query->fetchAll();
-    }
-
-    public static function obtenerPublicacionesPareja(){
-        self::getConexion();
-
-        $query = self::$cnx->prepare("
-            SELECT *
-            FROM publicaciones WHERE tipoMascota = 'Pareja'
-        ");
-        $query->execute();
-
-        return $query->fetchAll();
-    }
-
-    public static function obtenerPublicacionesUsuario($idUsuario){
+    public function obtenerPublicacionesUsuario($idUsuario){
         self::getConexion();
 
         $query = self::$cnx->prepare("SELECT *
@@ -204,7 +178,7 @@ class UsuarioDao extends Conexion
         return $query->fetchAll();
     }
     // Descontinuado
-    public static function guardarImg($nombreMascota,$destino,$idDelUsuario){
+    public function guardarImg($nombreMascota,$destino,$idDelUsuario){
         $consulta = "INSERT INTO imagenpublicacion(nombreMascota,imagenMascota,idUsuario)
         VALUES ('$nombreMascota','$destino','$idDelUsuario')";
 
@@ -215,7 +189,7 @@ class UsuarioDao extends Conexion
     }
     // ----------------------------------------------------
 
-    public static function guardarImgPerfil($nombreArchivo,$destino,$idDelUsuario){
+    public function guardarImgPerfil($nombreArchivo,$destino,$idDelUsuario){
         $consulta = "INSERT INTO imagenperfil(nombreArchivo,direccion,idUsuario)
                     VALUES ('$nombreArchivo','$destino','$idDelUsuario')";
 
@@ -227,7 +201,7 @@ class UsuarioDao extends Conexion
 
 
 
-    public static function obtenerFotoPerfil($idUsuario){
+    public function obtenerFotoPerfil($idUsuario){
         self::getConexion();
 
         $query = self::$cnx->prepare("SELECT * FROM imagenperfil WHERE imagenperfil.idUsuario = :idUsuario");
@@ -238,7 +212,7 @@ class UsuarioDao extends Conexion
         return $query->fetchAll();
     }
 
-    public static function obtenerFotoPerfilPublicacion($idUsuarioPost){
+    public function obtenerFotoPerfilPublicacion($idUsuarioPost){
         self::getConexion();
 
         $query = self::$cnx->prepare("SELECT 
@@ -250,129 +224,10 @@ class UsuarioDao extends Conexion
         ]);
 
         if(isset($query)){
-            return $query->fetch();
-        }else{
-            return $query = null;
-        }
-        
-    }
-    public static function ActualizarImgPerfil($nombreArchivo,$destino,$idDelUsuario){
-        $consulta = "UPDATE imagenperfil
-                     SET nombreArchivo='$nombreArchivo', direccion='$destino' 
-                     WHERE idUsuario=$idDelUsuario";
-
-        self::getConexion();
-        $query = self::$cnx->prepare($consulta);
-
-        $query -> execute();
-    }
-
- 
-    public static function obtenerNumero($idUsuario){
-        self::getConexion();
-
-        $query = self::$cnx->prepare("SELECT numero FROM usuarios WHERE usuarios.id = :idUsuario");
-        $query->execute([
-            'idUsuario' => $idUsuario
-        ]);
-
-        if(isset($query)){
             return $query->fetchAll();
         }else{
             return $query = null;
         }
-    }
-    
-    public static function obtenerNumeros($idUsuarioPost){
-        self::getConexion();
-
-        $query = self::$cnx->prepare("SELECT usuarios.numero 
-                                    FROM usuarios, publicaciones 
-                                    WHERE usuarios.id = $idUsuarioPost");
-        $query->execute();
-
-
-        return $query->fetch();
-        
-    }
-    // -----------------------------------------------------------------------------------------------------
-    public static function obtenerDescripcion($idUsuario){
-        self::getConexion();
-
-        $query = self::$cnx->prepare("SELECT descripcion FROM usuarios WHERE usuarios.id = :idUsuario");
-        $query->execute([
-            'idUsuario' => $idUsuario
-        ]);
-
-        if(empty($query)){
-            return $query = null;
-        }else{
-            return $query->fetch();
-        }
-    }
-    public static function ActualizarDescripcion($descripcion, $idDelUsuario){
-        $consulta = "UPDATE usuarios SET descripcion = '$descripcion' WHERE id = $idDelUsuario";
-        
-
-        self::getConexion();
-        $query = self::$cnx->prepare($consulta);
-
-        $query -> execute();
-    }
-
-    public static function AñadirDescripcion($descripcion,$idDelUsuario ){
-        $consulta = "INSERT INTO usuario(descripcion)
-                     VALUES ('$descripcion')
-                     WHERE usuario.id = $idDelUsuario";
-
-        self::getConexion();
-        $query = self::$cnx->prepare($consulta);
-
-        $query -> execute();
-    }
-    // ----------------------------------------------------------------------------------------
-
-    public static function obtenerNumeroUser($idUsuario){
-        self::getConexion();
-
-        $query = self::$cnx->prepare("SELECT numero FROM usuarios WHERE usuarios.id = :idUsuario");
-        $query->execute([
-            'idUsuario' => $idUsuario
-        ]);
-
-        if(empty($query)){
-            return $query = null;
-        }else{
-            return $query->fetch();
-        }
-    }
-
-    public static function AñadirNumeroUser($numero,$idDelUsuario){
-        self::getConexion();
-        $consulta = "INSERT INTO usuario(numero)
-                     VALUES ('$numero')
-                     WHERE usuario.id = $idDelUsuario";
-
-        $query = self::$cnx->prepare($consulta);
-
-        $query -> execute();
-    }
-
-
-    public static function borrarPublicacion($id){
-        $mensaje = 'La data es: ' . $id;
-        return $mensaje;
-            // if (isset($_POST['btnBorrar'])) {
-            //     $consulta = "DELETE FROM publicaciones
-            //                 WHERE idUsuario = $idPublicacion";
-
-            //     self::getConexion();
-            //     $query = self::$cnx->prepare($consulta);
-
-            //     $query->execute();
-            // }
-
-        
         
     }
     // $archivoTem,$destino,$_SESSION["usuario"]["id"]

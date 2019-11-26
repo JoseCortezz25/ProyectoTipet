@@ -5,16 +5,18 @@ include '../helps/helps.php';
 
 session_start();
 
+header('Content-type: application/json');
+$resultado = array();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["txtNombre"]) && isset($_POST["txtEmail"]) && isset($_POST["txtUsuario"]) && isset($_POST["txtPassword"])) {
+    if (isset($_POST["txtUsuario"]) && isset($_POST["txtPassword"])) {
 
-        $txtNombre     = validar_campo($_POST["txtNombre"]);
-        $txtEmail      = validar_campo($_POST["txtEmail"]);
-        $txtUsuario    = validar_campo($_POST["txtUsuario"]);
-        $txtPassword   = validar_campo($_POST["txtPassword"]);
-        $txtPrivilegio = 2;
+        $txtUsuario  = validar_campo($_POST["txtUsuario"]);
+        $txtPassword = validar_campo($_POST["txtPassword"]);
 
-        if (UsuarioControlador::registrar($txtNombre, $txtEmail, $txtUsuario, $txtPassword, $txtPrivilegio)) {
+        $resultado = array("estado" => "true");
+
+        if (UsuarioControlador::login($txtUsuario, $txtPassword)) {
             $usuario             = UsuarioControlador::getUsuario($txtUsuario, $txtPassword);
             $_SESSION["usuario"] = array(
                 "id"         => $usuario->getId(),
@@ -23,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 "email"      => $usuario->getEmail(),
                 "privilegio" => $usuario->getPrivilegio(),
             );
-
-            header("location:usuario.php");
+            return print(json_encode($resultado));
         }
 
     }
-} else {
-    header("location:registro.php?error=1");
 }
+
+$resultado = array("estado" => "false");
+return print(json_encode($resultado));

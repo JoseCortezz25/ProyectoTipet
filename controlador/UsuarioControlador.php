@@ -31,7 +31,6 @@ class UsuarioControlador
         $obj_usuario->setEmail($email);
         $obj_usuario->setPrivilegio($privilegio);
         $obj_usuario->setPassword($password);
-        // $obj_usuario->setNumero($numero);
 
         return UsuarioDao::registrar($obj_usuario);
     }
