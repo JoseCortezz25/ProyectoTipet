@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // "numero" => $usuario->getNumero(),
             );
 
-            header("location:usuario.php");
+            header("location:admin.php");
         }
 
     }
