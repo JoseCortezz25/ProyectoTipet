@@ -47,13 +47,7 @@
             </div>
             <!-- --------------------------------------- -->
 
-              <!-- < ?php if(empty($obtenerFotoPerfil)):  ?> 
 
-                  < ?php include 'partials/formAñadirFotoPerfil.php'; ?>  
-              < ?php else: ?>
-
-                  < ?php include 'partials/formActualizarFoto.php'; ?>
-              < ?php endif; ?>  -->
 
 
                   
