@@ -1,23 +1,13 @@
 <?php include 'partials/head.php';?>
-<?php include 'partials/menu.php';?>
 
-<div class="container">
-
-	<div class="starter-template">
-		<br>
-		<br>
-		<br>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Login con php!</h1>
-				<p>Curso de formando Código</p>
-				<p>
-					<a href="login.php" class="btn btn-primary btn-lg">Login</a>
-				</p>
-			</div>
-		</div>
+<body>
+	
+	<div class="contenedorGracias">
+		<h2>Gracias</h2>
+		<p>Gracias a  por ayudar en la elaboración del diseño de Tipet.</p>
+		<a href="login.php">Regresar</a>
 	</div>
 
-</div><!-- /.container -->
 
-<?php include 'partials/footer.php';?>
+</body>
+</html>

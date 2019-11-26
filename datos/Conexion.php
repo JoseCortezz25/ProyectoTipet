@@ -11,9 +11,9 @@ class Conexion
     public static function conectar()
     {
         try {
-
-            $cn = new PDO("mysql:host=127.0.0.1:52225;dbname=proyectotipetdb;charset=utf8mb4", "azure", "6#vWHD_$");
-
+            
+            $cn = new PDO("mysql:host=localhost;dbname=proyecto", "root", "");
+            
             return $cn;
 
         } catch (PDOException $ex) {
@@ -22,4 +22,3 @@ class Conexion
     }
 
 }
-// proyectotipetdb

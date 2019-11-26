@@ -13,116 +13,137 @@
   // Obtener registros
   $publicaciones = $obj -> obtenerPublicaciones();
   $obtenerFotoPerfil = $obj -> obtenerFotoPerfil($_SESSION["usuario"]["id"]);
-    
+
   
 ?>
 
-<body>
-<!-- vamos a vFFFaler en bases de datos, crack -->
+  <body>
+  <?php include 'partials/header.php'; ?>
   <div class="contenedorHome">
-
+   
     <!-- -------------------- Columna Uno -------------------- -->
     <div class="contenedorHome-Columnas">
-      <div class="Caja"><a href="" class="link-gradient">Tipet <strong>BETA</strong></a></div>
-      <!-- --------------- Caja de secciones --------------- -->
+
       <div class="Caja">
-          <!-- <div class="seccion"><a href="">a</a></div>
-          <div class="seccion"><a href="">a</a></div>
-          <div class="seccion"><a href="">a</a></div> -->
+        <!-- <div class="aviso"> -->
+          <!-- <p><b>Aviso:</b> Tipet sigue en version de desarrollo, lo cual puede traer problemas al momento de ejercutar ciertas funciones. Gracias.</p> -->
+          <!-- <p>Para probar nuevar versiones se recomienda <b>borrar cache</b></p>
+        </div> -->
+      </div>
 
-        <!--------- Primera caja --------->
-        <div class="Cajita">
-          <a href="perfil.php">
-            <div class="Cajita-contImg">
-              
-              <?php if(empty($obtenerFotoPerfil)):  
-                echo "<img src='../imagenes/imagenes_app/user.png'>";
-              ?> 
-              <?php else:  ?>
-                <img src="<?php echo $obtenerFotoPerfil[0]['direccion'];?>" alt="">
-              <?php endif;?>
+      <div class="Caja">
 
-              <!-- <img src="< ?php echo $obtenerFotoPerfil[0]['direccion'];?>" alt=""> -->
-                <!-- <img src="https://img.icons8.com/windows/96/000000/user.png"> -->
+        <a href="usuario-adopcion.php">
+          <div class="CajaOpciones2">
+            <p>Adopcion </p>
+          </div>
+        </a>
+        
+        <a href="usuario-perdido.php">
+          <div class="CajaOpciones2">
+            <p>Perdidos</p>
+          </div>
+        </a>
 
-
-
-              </div>
-              <p class="tn"><?php echo $_SESSION["usuario"]["nombre"]; ?></p>
-            </a>
-        </div>
-
-        <!--------- Segunda caja --------->
-        <div class="Cajita">
-          <a href="perfil.php">
-            <div class="Cajita-contImg2">
-              <!-- <img src="https://img.icons8.com/pastel-glyph/64/000000/pet-tray.png"> -->
-              <!-- <img src="https://img.icons8.com/cute-clipart/2x/dog-footprint.png" alt=""> -->
-              <img src="https://img.icons8.com/cute-clipart/64/000000/dog.png">
-            </div>
-            <p>Mis mascotas</p>
-            </a>
-        </div>
-        <!--------- Tercera Caja --------->
-        <div class="Cajita">
-          <a href="cerrar-sesion.php">
-              <div class="Cajita-contImg2">
-                <img src="https://img.icons8.com/cute-clipart/64/000000/exit.png">
-              </div>
-              <p>Cerrar Session</p>
-          </a>
-        </div>
+        <a href="usuario-pareja.php">
+          <div class="CajaOpciones2">
+            <p>Pareja</p>
+          </div>
+        </a>
+      </div>
+      <div class="Caja">
+        <!-- <div class="ex3">
+          <label for="item-3" class="contenedorMiniMenu"><img src="../imagenes/imagenes_app/menu.png" alt=""></label>
+          <input type="checkbox" name="one" id="item">
+          <div class="hide">Equation billions upon billions! Courage of our questions decipherment, take root and flourish, cosmic ocean paroxysm of global death. Light years inconspicuous motes of rock and gas from which we spring something incredible is waiting to be known,
+                muse about!
+          </div>
+        </div> -->
+      
 
       </div>
-     
-     
-      <div class="Caja">
-        <div class="aviso">
-          <p><b>Aviso:</b> Tipet sigue en version de desarrollo, lo cual puede traer problemas al momento de ejercutar ciertas funciones. Gracias.</p>
-        </div>
-      </div>
+
     </div>
+
     <!-- -------------------- Columna Dos -------------------- -->
     <div class="contenedorHome-Columnas">
-    <!-- <div class="aviso">
-      <p>Array ( [0] => Array ( [direccion] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg [0] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg ) [1] => Array ( [direccion] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg [0] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg ) [2] => Array ( [direccion] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg [0] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg ) [3] => Array ( [direccion] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg [0] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg ) [4] => Array ( [direccion] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg [0] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg ) [5] => Array ( [direccion] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg [0] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg ) [6] => Array ( [direccion] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg [0] => ../imagenes/WhatsApp Image 2019-11-15 at 12.12.07 PM.jpeg ) ) 1</p>
-    </div> -->
-      <h2>Mascotas <span>populares</span></h2>
-        <!-- <div class="aviso">
-          <strong>Aviso: </strong>Tipet aun sigue en desarrollo, por lo cual, la pagina puede traer errores al ejecutar ciertas funciones. Los diseños y demás estan en version de prueba. Nuevas funcionalidades y mejora en el diseño llegarán en proximas versiones. Gracias.
-        </div> -->
-        <div class="contenedorPublicaciones">
+      <div class="contenedorBienvenida">
+        <div class="titulo2">
+          Hey! <?php echo $_SESSION["usuario"]["nombre"]; ?>
+          <br>  
+          <span>¿Alguna novedad?</span>
+        </div>
+      </div>
+      
+      <div class="contenedorHome-Formulario">
+        <?php include 'partials/formAñadirMascota.php'; ?>
+        <!-- <a href="https://api.whatsapp.com/send?phone=573166226046&text=hola%20¿qué%20tal%20estás?">Mensaje</a> -->
+      </div>
+
+      <div class="contenedorPublicaciones">
 
         <!-- --------  Publicacion --------  -->
         <?php $num =1; ?>
         <?php foreach($publicaciones as $publicaciones):?>
             <div id="fondoImagen<?php echo $num; ?>" class="contenedorPublicacion">
+
                 <div class="contenedorPublicacion-perfil">
+                  <!-- Contenedor de perfil -->
+                  <div class="contenedorPublicacion-perfil-nav">
+
                     <div class="contenedorPublicacion-perfil-contImg">
-                      <!-- <img src="https://cdn.pixabay.com/photo/2019/04/18/10/31/flying-dog-4136563_960_720.jpg" alt="">           -->
                       <?php  $obtenerFotoPerfilPublicacion = $obj ->  obtenerFotoPerfilPublicacion($publicaciones['idUsuario']);?>
                             <?php if(empty($obtenerFotoPerfilPublicacion)):  
                               echo "<img src='../imagenes/imagenes_app/user.png'>";
                             ?> 
                             <?php else:  ?>
-                              <img src="<?php echo $obtenerFotoPerfilPublicacion[0]['direccion'] ?>">
+                              <img src="<?php echo $obtenerFotoPerfilPublicacion['direccion'] ?>">
                             <?php endif;?>
                     </div>
                     <?php  $añadir = $obj -> obtenerPublicacion($publicaciones['idPublicacion']);?> 
                     <p><?php echo $añadir[0]['nombre']?> </p>
+                    
+                  </div>
+
+                  <div class="contenedorPublicacion-perfil-nav">
+                    <!-- <button onclick="cargarData(< ?php echo $publicaciones['idPublicacion']; ?>)">Regresar</button> -->
+                  </div>
+                  <!-- ------------------------------------------ -->
                 </div>
 
                 <div class="contenedorPublicacion-contenido">
-                  <p class="nombreMascota"><?php echo $publicaciones['nombreMascota']?></p>
+                  <p class="nombreMascota"><?php echo $publicaciones['nombreMascota'];?></p>
+                  <!-- <p><?php echo $publicaciones['idPublicacion']; ?></p> -->
+                  
                   <p class="descripcionMascota"><?php echo $publicaciones['descripcion']?> </p>
-                  <strong class="botonTipo"><?php echo $publicaciones['tipoMascota']?></strong>
-                </div>
-            </div>
+                  <strong class="botonTipo2"><?php echo $publicaciones['ubicacion']?></strong>
+                  <?php if($publicaciones['tipoMascota'] == 'Publicacion normal'): ?>
 
-            <?php
-                    $linksito = $publicaciones['direccionImg']; 
-                    // echo $linksito;
-                  ?>
+                  <?php else: ?>
+                    <div class="contenedorInferior">
+                      <strong class="botonTipo"><?php echo $publicaciones['tipoMascota']?></strong>
+                      
+
+                      <?php $obtenerNumeros = $obj -> obtenerNumeros($publicaciones['idUsuario']);?> 
+                        <?php if($obtenerNumeros['numero'] == 0): ?>
+                        <?php else: ?> 
+                          
+                          <button class="accordion"><img src="../imagenes/imagenes_app/mensaje.png" alt=""></button>
+                          <div class="panel">
+                            <?php 
+                              $mensaje = 'Hola, soy ' . $_SESSION["usuario"]["nombre"] . ' estoy interesado en ' . $publicaciones['nombreMascota'];
+                            ?>
+                            <a class="botonRegistrarse" href="https://api.whatsapp.com/send?phone=57<?php echo $obtenerNumeros['numero']; ?>&text=<?php echo $mensaje;?>" id="mensaje<?php echo $num; ?>">Mensaje</a> 
+                          
+                          </div>
+                        <?php endif; ?>
+                      </div>
+                  <?php endif; ?>
+                    
+                </div>
+
+            </div>
+              <?php $linksito = $publicaciones['direccionImg']; ?>
               <script>
                 document.getElementById("fondoImagen<?php echo $num; ?>").style.backgroundImage = "url('<?php echo $linksito; ?>')";
               </script>
@@ -131,14 +152,13 @@
 
         <!-- --------  Fin Publicacion --------  -->
 
-
-
-        </div>
+      </div>
     </div>
     <!-- -------------------- Columna Tres -------------------- -->
     <div class="contenedorHome-Columnas">
+      <div class="titulo1">Tips <span>de la semana</span></div>
           <div class="Caja2">
-                  <h2>Tips <span>de la semana</span></h2>
+                  
                   <!-- -------------------- Columna Cajas -------------------- -->
                   <div class="CajaSugerencias">
                       <div class="vacio">  #1 </div>
@@ -160,9 +180,60 @@
     </div>
 
   </div>
-
+  <!-- <script>
+    // let idUser =  < ?php echo $_SESSION['usuario']['id'];?>
+        function cargarData(id){
+          let url = 'reporte.php';
+          $.ajax({
+            type: 'POST',
+            url: url,
+            data: 'id=' + id,
+            // data: {
+            //   'id': id, 
+            //  'idUser': idUser
+            // },
+            success:function(response){
+              alert(response)
+            }
+          })
+        }
+      
+  </script> -->
 </body>
+  <?php include 'partials/footer.php';?>
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+  </script>
 </html>
 
+                    
+                    <!-- < ?php $obtenerNumeros = $obj -> obtenerNumeros($publicaciones['idUsuario']);?> 
+                    <a href="https://api.whatsapp.com/send?phone=57< ?php echo $obtenerNumeros['numero']; ?>&text=hola prueba" id="mensaje<?php echo $num; ?>">Mensaje</a>  -->
+                    
 
-<!-- < ?php include 'partials/footer.php';?> -->
+
+                    <!-- <button onclick="cargarData(< ?php echo $publicaciones['idPublicacion']; ?>)">Regresar</button> -->
+                    <!-- <script>
+                      function cargarData(id, idUser){
+                          console.log(id)
+                          console.log('-----------------')
+                          console.log(idUser)
+                      }
+                    </script> -->
+
+                    <!-- <div class="contenedorMenuPublicacion"> -->
+                      <!-- < ?php include 'partials/MenuPublicacion.php';?> -->
+                    <!-- </div> -->

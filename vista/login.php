@@ -1,31 +1,14 @@
 <?php include 'partials/head.php';?>
 <!-- < ?php include 'partials/menu.php';?> -->
 
-<!DOCTYPE html>
-<html lang="es">
 
-<head>
-    <meta http-equiv="Expires" content="0">
-    <meta http-equiv="Last-Modified" content="0">
-    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inicio</title>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    <!-- <link rel="stylesheet" href="Estilos/normalize.css"> -->
-    <link rel="stylesheet" href="assets/Estilos.css">
-    <link rel="stylesheet" href="assets/Mobile.css">
-
-</head>
 
 <body>
     <span></span>
     <header>
         <nav class="contenedorHeader-nav">
             <div class="contenedorHeader-Img"><img src="Imagenes/logo.png" alt=""></div>
-            <a href="" class="link-gradient">Tipet <strong>BETA</strong></a>
+            <a href="" class="link-gradient">Tipet</a>
            
         </nav>
         <nav class="contenedorHeader-nav">
@@ -86,7 +69,9 @@
 							<br><br>
 							<!-- <div class="form-group">
 								<label for="password">Password</label> -->
-								<input type="password" name="txtPassword" class="form-control" required id="password" placeholder="Contraseña">
+                                <input type="password" name="txtPassword" class="form-control" required id="password" placeholder="Contraseña">
+                                <br><br>
+                                <!-- <input type="text" name="txtNumero" id="numero" required  placeholder="Numero celular" maxlength="20"> -->
 							<!-- </div> -->
 							<br><br>
 							<button type="submit" class="botonRegistrarse2">Registrar</button>
@@ -102,7 +87,7 @@
 
     </main>
     <footer>
-        <p>Hecho con ❤</p>
+        <p><a href="">Hecho con ❤</a></p>
     </footer>
 
 
