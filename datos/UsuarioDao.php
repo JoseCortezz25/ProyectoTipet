@@ -3,7 +3,7 @@
 include 'Conexion.php';
 include '../entidades/Usuario.php';
 
-class UsuarioDao extends Conexion
+class UsuarioDao extends DB
 {
     protected static $cnx;
 
