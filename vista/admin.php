@@ -9,6 +9,7 @@ if (isset($_SESSION["usuario"])) {
 }
 ?>
 <?php include 'partials/menu.php';?>
+<?php header("location:usuario.php"); ?>
 <div class="container">
 	<div class="starter-template">
 		<br>

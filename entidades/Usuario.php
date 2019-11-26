@@ -11,74 +11,61 @@ class Usuario
     private $privilegio;
     private $fecha_registro;
 
-    public function getId()
-    {
-        return $this->id;
-    }
 
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+    public function getId(){
+		return $this->id;
+	}
 
-    public function getNombre()
-    {
-        return $this->nombre;
-    }
+	public function setId($id){
+		$this->id = $id;
+	}
 
-    public function setNombre($nombre)
-    {
-        $this->nombre = $nombre;
-    }
+	public function getNombre(){
+		return $this->nombre;
+	}
 
-    public function getUsuario()
-    {
-        return $this->usuario;
-    }
+	public function setNombre($nombre){
+		$this->nombre = $nombre;
+	}
 
-    public function setUsuario($usuario)
-    {
-        $this->usuario = $usuario;
-    }
+	public function getUsuario(){
+		return $this->usuario;
+	}
 
-    public function getEmail()
-    {
-        return $this->email;
-    }
+	public function setUsuario($usuario){
+		$this->usuario = $usuario;
+	}
 
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
+	public function getEmail(){
+		return $this->email;
+	}
 
-    public function getPassword()
-    {
-        return $this->password;
-    }
+	public function setEmail($email){
+		$this->email = $email;
+	}
 
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    }
+	public function getPassword(){
+		return $this->password;
+	}
 
-    public function getPrivilegio()
-    {
-        return $this->privilegio;
-    }
+	public function setPassword($password){
+		$this->password = $password;
+	}
 
-    public function setPrivilegio($privilegio)
-    {
-        $this->privilegio = $privilegio;
-    }
+	public function getPrivilegio(){
+		return $this->privilegio;
+	}
 
-    public function getFecha_registro()
-    {
-        return $this->fecha_registro;
-    }
+	public function setPrivilegio($privilegio){
+		$this->privilegio = $privilegio;
+	}
 
-    public function setFecha_registro($fecha_registro)
-    {
-        $this->fecha_registro = $fecha_registro;
-    }
+	public function getFecha_registro(){
+		return $this->fecha_registro;
+	}
+
+	public function setFecha_registro($fecha_registro){
+		$this->fecha_registro = $fecha_registro;
+	}
 
 }
