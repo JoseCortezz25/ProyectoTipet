@@ -76,6 +76,7 @@
       </div>
       
       <div class="contenedorHome-Formulario">
+      <p>hola</p>
         <?php include 'partials/formAñadirMascota.php'; ?>
         <!-- <a href="https://api.whatsapp.com/send?phone=573166226046&text=hola%20¿qué%20tal%20estás?">Mensaje</a> -->
       </div>

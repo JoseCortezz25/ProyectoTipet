@@ -46,24 +46,16 @@
               <p><?php echo $obtenerDesc['descripcion']; ?></p>    
             </div>
             <!-- --------------------------------------- -->
-            <!-- <div class="cajaContenidoPerfil"> 
-              
-            </div> -->
-            <!-- <div class="cajaContenidoPerfil"> 
-              <?php if(empty($obtenerFotoPerfil)):  ?> 
-                  <p>Añade tu foto de perfil</p>
-                  <?php include 'partials/formAñadirFotoPerfil.php'; ?>  
-              <?php else: ?>
-                  <p>Actualiza tu foto de perfil</p>
-                  <?php include 'partials/formActualizarFoto.php'; ?>
-              <?php endif; ?> 
-            </div> -->
 
-            <!-- <div class="contenedorHome-Formulario">
-              <p>Añade tus mascotas</p>
-              < ?php include 'partials/formAñadirMascota.php'; ?>
-              <a href="https://api.whatsapp.com/send?phone=573166226046&text=hola%20¿qué%20tal%20estás?">Mensaje</a>
-            </div> -->
+              <!-- < ?php if(empty($obtenerFotoPerfil)):  ?> 
+
+                  < ?php include 'partials/formAñadirFotoPerfil.php'; ?>  
+              < ?php else: ?>
+
+                  < ?php include 'partials/formActualizarFoto.php'; ?>
+              < ?php endif; ?>  -->
+
+
                   
               <!-- --------------------------------------- -->
         </div>
