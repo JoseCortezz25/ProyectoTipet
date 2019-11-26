@@ -1,28 +1,25 @@
 <?php
-class DB{
-    private $host;
-    private $db;
-    private $user;
-    private $password;
-    private $charset;
 
-    public function __construct(){
-        $this->host     = '127.0.0.1:52225';
-        $this->db       = 'proyectotipetdb';
-        $this->user     = 'azure';
-        $this->password = "6#vWHD_$";
-        $this->charset  = 'utf8mb4';
-    }
+class Conexion
+{
 
-    public function conectar(){
+    /**
+     * Conexión a la base datos
+     *
+     * @return PDO
+     */
+    public static function conectar()
+    {
         try {
-            $connection = "mysql:host=" . $this->host . ";dbname=" . $this->db . ";charset=" . $this->charset;
-            $pdo = new PDO($connection, $this->user, $this->password);
-   
-            return $pdo;
-        }catch(PDOException $e){
-            print_r('Error connection: ' . $e->getMessage());
+
+            $cn = new PDO("mysql:host=127.0.0.1:52225;dbname=proyectotipetdb;charset=utf8mb4", "azure", "6#vWHD_$");
+
+            return $cn;
+
+        } catch (PDOException $ex) {
+            die($ex->getMessage());
         }
     }
-?>
 
+}
+// proyectotipetdb
